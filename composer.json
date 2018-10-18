@@ -1,0 +1,21 @@
+{
+    "name": "asbamboo/openpay-wxpay",
+    "description": "聚合支付模块, asbamboo/openpay的扩展, 微信支付模块",
+    "type": "project",
+    "require": {
+    	"php" : "^7.2",
+        "asbamboo/autoload": "^1.0"
+    },
+    "require-dev": {
+        "asbamboo/event": "^1.0",
+        "phpunit/phpunit": "^7.3@dev"
+    },
+    "authors": [
+        {
+            "name": "李春寅",
+            "email": "licy2013@aliyun.com"
+        }
+    ],
+    "license": "BSD-3-Clause",
+    "minimum-stability": "dev"
+}
