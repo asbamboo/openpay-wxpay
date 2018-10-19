@@ -2,13 +2,30 @@
     "name": "asbamboo/openpay-wxpay",
     "description": "聚合支付模块, asbamboo/openpay的扩展, 微信支付模块",
     "type": "project",
+    "autoload" : {
+		"psr-4" : {
+			"asbamboo\\openpayWxpay\\" : ""
+		}  
+	},
     "require": {
     	"php" : "^7.2",
-        "asbamboo/autoload": "^1.0"
+        "asbamboo/autoload": "^1.0",
+        "asbamboo/openpay": "^1.0"
     },
     "require-dev": {
         "asbamboo/event": "^1.0",
         "phpunit/phpunit": "^7.3@dev"
+    },
+    "scripts": {
+    	"openpay-scripts": [
+    		"asbamboo\\openpayWxpay\\Script::test"
+    	],
+    	"post-install-cmd": [
+    		"@openpay-scripts"
+    	],
+    	"post-update-cmd": [
+    		"@openpay-scripts"
+    	]
     },
     "authors": [
         {
@@ -17,5 +34,11 @@
         }
     ],
     "license": "BSD-3-Clause",
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.laravel-china.org"
+        }
+    }
 }
