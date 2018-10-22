@@ -2,7 +2,7 @@
 namespace asbamboo\openpayWxpay\wxpayApi\response;
 
 use asbamboo\http\ResponseInterface AS HttpResponseInterface;
-use asbamboo\openpay\exception\ResponseFormatException;
+use asbamboo\openpayWxpay\exception\ResponseFormatException;
 use asbamboo\openpayWxpay\wxpayApi\sign\SignType;
 use asbamboo\openpayWxpay\wxpayApi\sign\SignTrait;
 

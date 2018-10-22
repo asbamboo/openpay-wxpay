@@ -7,7 +7,7 @@ namespace asbamboo\openpayWxpay\exception;
  * @author 李春寅 <licy2013@aliyun.com>
  * @since 2018年10月22日
  */
-class NotFindApiRequestException extends \RuntimeException
+class NotFindApiRequestException extends OpenpayWxpayException
 {
 
 }
