@@ -1,12 +1,12 @@
 <?php
-namespace asbamboo\openpayWxpay\payMethod\request;
+namespace asbamboo\openpayWxpay\wxpayApi\request;
 
-use asbamboo\openpay\payMethod\wxpay\gateway\GatewayUriTrait;
+use asbamboo\openpayWxpay\wxpayApi\gateway\GatewayUriTrait;
 use asbamboo\http\UriInterface;
-use asbamboo\openpay\payMethod\wxpay\requestParams\unit\ScanQRCodeByPayUnifiedorderParams;
-use asbamboo\openpay\payMethod\wxpay\requestParams\RequestParamsInterface;
-use asbamboo\openpay\payMethod\wxpay\builder\tool\BodyTrait;
-use asbamboo\openpay\payMethod\wxpay\builder\tool\CreateRequestTrait;
+use asbamboo\openpayWxpay\wxpayApi\requestParams\unit\ScanQRCodeByPayUnifiedorderParams;
+use asbamboo\openpayWxpay\wxpayApi\requestParams\RequestParamsInterface;
+use asbamboo\openpayWxpay\wxpayApi\request\tool\BodyTrait;
+use asbamboo\openpayWxpay\wxpayApi\request\tool\CreateRequestTrait;
 
 /**
  * 微信扫码支付 统一下单接口
@@ -45,9 +45,9 @@ class ScanQRCodeByPayUnifiedorder implements RequestInterface
     /**
      *
      * {@inheritDoc}
-     * @see \asbamboo\openpay\BuilderInterface::assignData()
+     * @see \asbamboo\openpayWxpay\wxpayApi\request\RequestInterface::assignData()
      */
-    public function assignData(array $assign_data) : BuilderInterface
+    public function assignData(array $assign_data) : RequestInterface
     {
         $this->RequestParams  = new ScanQRCodeByPayUnifiedorderParams();
         $this->RequestParams->mappingData($assign_data);

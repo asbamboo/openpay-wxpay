@@ -18,7 +18,7 @@
     },
     "scripts": {
     	"openpay-scripts": [
-    		"asbamboo\\openpayWxpay\\Script::test"
+    		"asbamboo\\openpay\\script\\Channel::generateMappingInfo"
     	],
     	"post-install-cmd": [
     		"@openpay-scripts"
@@ -34,11 +34,5 @@
         }
     ],
     "license": "BSD-3-Clause",
-    "minimum-stability": "dev",
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://packagist.laravel-china.org"
-        }
-    }
+    "minimum-stability": "dev"
 }

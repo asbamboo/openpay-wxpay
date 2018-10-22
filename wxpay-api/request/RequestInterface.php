@@ -1,14 +1,14 @@
 <?php
-namespace asbamboo\openpayWxpay\payMethod\request;
+namespace asbamboo\openpayWxpay\wxpayApi\request;
 
 use asbamboo\http\RequestInterface AS HttpRequestInterface;
 use asbamboo\http\UriInterface;
 
 /**
- * 第三方请求实例创建器接口
+ * 接口请求对象[asbamboo\http\HttpRequestInterface]实例创建器
  *
  * @author 李春寅 <licy2013@aliyun.com>
- * @since 2018年10月19日
+ * @since 2018年10月9日
  */
 interface RequestInterface
 {
