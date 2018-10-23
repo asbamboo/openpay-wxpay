@@ -3,9 +3,9 @@ namespace asbamboo\openpayWxpay\wxpayApi\gateway;
 
 use asbamboo\http\Uri;
 use asbamboo\http\UriInterface;
-use asbamboo\openpay\BuilderInterface;
 use asbamboo\helper\env\Env AS EnvHelper;
-use asbamboo\openpay\Env;
+use asbamboo\openpayWxpay\wxpayApi\request\RequestInterface;
+use asbamboo\openpayWxpay\Env;
 
 /**
  * 接口请求网关uri
@@ -28,9 +28,9 @@ trait GatewayUriTrait
      * 设置请求网关
      *
      * @param string $uri
-     * @return BuilderInterface
+     * @return RequestInterface
      */
-    public function setGateway(string $uri) : BuilderInterface
+    public function setGateway(string $uri) : RequestInterface
     {
         $this->gateway_uri  = $uri;
         return $this;

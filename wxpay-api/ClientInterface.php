@@ -18,5 +18,5 @@ interface ClientInterface
      * @param array $assign_data api请求构件指派的数据集
      * @return ResponseInterface 响应结果
      */
-    public function request(string $api_name, array $assign_data = []) : ResponseInterface;
+    public static function request(string $api_name, array $assign_data = []) : ResponseInterface;
 }

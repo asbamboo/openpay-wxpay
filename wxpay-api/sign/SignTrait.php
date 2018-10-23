@@ -2,7 +2,7 @@
 namespace asbamboo\openpayWxpay\wxpayApi\sign;
 
 use asbamboo\helper\env\Env AS EnvHelper;
-use asbamboo\openpay\Env;
+use asbamboo\openpayWxpay\Env;
 
 /**
  * 签名生成器

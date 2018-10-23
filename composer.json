@@ -2,11 +2,6 @@
     "name": "asbamboo/openpay-wxpay",
     "description": "聚合支付模块, asbamboo/openpay的扩展, 微信支付模块",
     "type": "project",
-    "autoload" : {
-		"psr-4" : {
-			"asbamboo\\openpayWxpay\\" : ""
-		}  
-	},
     "require": {
     	"php" : "^7.2",
         "asbamboo/autoload": "^1.0",

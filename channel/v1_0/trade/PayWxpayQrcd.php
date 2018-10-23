@@ -79,8 +79,8 @@ class PayWxpayQrcd implements PayInterface
      * {@inheritDoc}
      * @see \asbamboo\openpay\channel\ChannelInterface::getName()
      */
-    public function getName()
+    public function getName() : string
     {
-        return self::getName();
+        return self::NAME;
     }
 }

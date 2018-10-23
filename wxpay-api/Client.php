@@ -7,6 +7,7 @@ use asbamboo\openpayWxpay\exception\NotFindApiRequestException;
 use asbamboo\http\RequestInterface AS HttpRequestInterface;
 use asbamboo\http\ResponseInterface AS HttpResponseInterface;
 use asbamboo\openpayWxpay\exception\NotFindApiResponseException;
+use asbamboo\http\Client AS HttpClient;
 
 /**
  *
@@ -57,7 +58,7 @@ class Client implements ClientInterface
     {
         static $Client  = null;
         if(is_null($Client)){
-            $Client = new Client();
+            $Client = new HttpClient();
         }
         return $Client->send($HttpRequest);
     }
@@ -70,7 +71,7 @@ class Client implements ClientInterface
      */
     private static function transformResponse(string $api_name, HttpResponseInterface $HttpResponse) : ResponseInterface
     {
-        $response_class     = __NAMESPACE__ . "\\response\\{$name}Response";
+        $response_class     = __NAMESPACE__ . "\\response\\{$api_name}Response";
         if(!class_exists($response_class)){
             throw new NotFindApiResponseException(sprintf('%s接口:找不到转换响应值的类。', $api_name));
         }
