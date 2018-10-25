@@ -2,8 +2,8 @@
 namespace asbamboo\openpayWxpay\channel\v1_0\trade;
 
 use asbamboo\openpay\channel\v1_0\trade\PayInterface;
-use asbamboo\openpay\apiStore\parameter\v1_0\trade\PayRequest;
-use asbamboo\openpay\apiStore\parameter\v1_0\trade\PayResponse;
+use asbamboo\openpay\apiStore\parameter\v1_0\trade\pay\PayRequest;
+use asbamboo\openpay\apiStore\parameter\v1_0\trade\pay\PayResponse;
 use asbamboo\helper\env\Env AS EnvHelper;
 use asbamboo\openpay\apiStore\exception\Api3NotSuccessResponseException;
 use asbamboo\api\apiStore\ApiResponseParams;

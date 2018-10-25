@@ -11,17 +11,6 @@
         "asbamboo/event": "^1.0",
         "phpunit/phpunit": "^7.3@dev"
     },
-    "scripts": {
-    	"openpay-scripts": [
-    		"asbamboo\\openpay\\script\\Channel::generateMappingInfo"
-    	],
-    	"post-install-cmd": [
-    		"@openpay-scripts"
-    	],
-    	"post-update-cmd": [
-    		"@openpay-scripts"
-    	]
-    },
     "authors": [
         {
             "name": "李春寅",
