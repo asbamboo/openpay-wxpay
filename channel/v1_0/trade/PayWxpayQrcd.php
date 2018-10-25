@@ -26,7 +26,8 @@ class PayWxpayQrcd implements PayInterface
      *
      * @var string
      */
-    const NAME  = 'WXPAY_QRCD'; // 微信扫码支付
+    const NAME  = 'WXPAY_QRCD';
+    const LABEL = '微信扫码支付';
 
     /**
      *
@@ -82,5 +83,15 @@ class PayWxpayQrcd implements PayInterface
     public function getName() : string
     {
         return self::NAME;
+    }
+
+    /**
+     *
+     * {@inheritDoc}
+     * @see \asbamboo\openpay\channel\ChannelInterface::getLabel()
+     */
+    public function getLabel() : string
+    {
+        return self::LABEL;
     }
 }
