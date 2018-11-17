@@ -3,7 +3,13 @@ namespace asbamboo\openpayWxpay\wxpayApi\requestParams\unit;
 
 use asbamboo\openpayWxpay\wxpayApi\requestParams\RequestParams;
 
-class ScanQRCodeByPayUnifiedorderParams extends RequestParams
+/**
+ * 统一下单 native 请求参数
+ *
+ * @author 李春寅 <licy2013@aliyun.com>
+ * @since 2018年11月17日
+ */
+class NativeByPayUnifiedorderParams extends RequestParams
 {
     /**
      * 必填

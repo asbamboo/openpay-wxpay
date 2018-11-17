@@ -2,12 +2,12 @@
 namespace asbamboo\openpayWxpay\wxpayApi\response;
 
 /**
- * 微信扫码支付 统一下单接口 响应结果
+ * 统一下单 H5 响应结果
  *
  * @author 李春寅 <licy2013@aliyun.com>
  * @since 2018年10月12日
  */
-class ScanQRCodeByPayUnifiedorderResponse extends ResponseAbstract
+class H5ByPayUnifiedorderResponse extends ResponseAbstract
 {
     /**
      * 必填
@@ -29,10 +29,11 @@ class ScanQRCodeByPayUnifiedorderResponse extends ResponseAbstract
     public $prepay_id;
 
     /**
-     * 二维码链接
+     * 必填
+     * 支付跳转链接
      * trade_type为NATIVE时有返回，用于生成二维码，展示给用户进行扫码支付
      *
      * @var String(64)
      */
-    public $code_url;
+    public $mweb_url;
 }
