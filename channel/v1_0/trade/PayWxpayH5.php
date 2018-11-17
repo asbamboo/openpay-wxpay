@@ -22,7 +22,7 @@ use asbamboo\openpayWxpay\wxpayApi\response\NativeByPayUnifiedorderResponse;
  * @author 李春寅 <licy2013@aliyun.com>
  * @since 2018年10月22日
  */
-class PayWxpayQrcd implements PayInterface
+class PayWxpayH5 implements PayInterface
 {
     /**
      *
@@ -48,7 +48,7 @@ class PayWxpayQrcd implements PayInterface
                 }
             }
 
-            $WxResponse                             = Client::request('NativeByPayUnifiedorder', $request_data);
+            $WxResponse                             = Client::request('H5ByPayUnifiedorder', $request_data);
             if(     $WxResponse->get('return_code') != NativeByPayUnifiedorderResponse::RETURN_CODE_SUCCESS
                 ||  $WxResponse->get('result_code') != NativeByPayUnifiedorderResponse::RESULT_CODE_SUCCESS
             ){
@@ -63,8 +63,8 @@ class PayWxpayQrcd implements PayInterface
                 throw $Exception;
             }
             $Response               = new Response();
-            $Response->setRedirectType(Response::REDIRECT_TYPE_QRCD);
-            $Response->setQrCode($WxResponse->get('code_url'));
+            $Response->setRedirectType(Response::REDIRECT_TYPE_PC);
+            $Response->setRedirectUrl($WxResponse->get('mweb_url')."&redirect_url=" . urlencode($Request->getReturnUrl()));
             return $Response;
         }catch(ResponseFormatException $e){
             throw new ApiException($e->getMessage());
@@ -89,7 +89,7 @@ class PayWxpayQrcd implements PayInterface
     public function supports() : array
     {
         return [
-            Constant::CHANNEL_WXPAY_QRCD   => Constant::CHANNEL_WXPAY_QRCD_LABEL,
+            Constant::CHANNEL_WXPAY_H5   => Constant::CHANNEL_WXPAY_H5_LABEL,
         ];
     }
 }

@@ -1,7 +1,12 @@
 {
     "name": "asbamboo/openpay-wxpay",
     "description": "聚合支付模块, asbamboo/openpay的扩展, 微信支付模块",
-    "type": "project",
+    "type": "library",
+    "autoload" : {
+        "psr-4" : {
+            "asbamboo\\openpay-wxpay\\" : ""
+        }
+    },
     "require": {
     	"php" : "^7.2",
         "asbamboo/autoload": "^1.0",
@@ -12,15 +17,15 @@
         "phpunit/phpunit": "^7.3@dev"
     },
     "scripts": {
-    	"openpay-scripts": [
-    		"asbamboo\\openpay\\script\\Channel::generateMappingInfo"
-    	],
-    	"post-install-cmd": [
-    		"@openpay-scripts"
-    	],
-    	"post-update-cmd": [
-    		"@openpay-scripts"
-    	]
+        "openpay-scripts": [
+            "asbamboo\\openpay\\script\\Channel::generateMappingInfo"
+        ],
+        "post-install-cmd": [
+            "@openpay-scripts"
+        ],
+        "post-update-cmd": [
+            "@openpay-scripts"
+        ]
     },
     "authors": [
         {

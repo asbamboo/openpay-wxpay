@@ -3,7 +3,7 @@ namespace asbamboo\openpayWxpay\wxpayApi\request;
 
 use asbamboo\openpayWxpay\wxpayApi\gateway\GatewayUriTrait;
 use asbamboo\http\UriInterface;
-use asbamboo\openpayWxpay\wxpayApi\requestParams\unit\ScanQRCodeByPayUnifiedorderParams;
+use asbamboo\openpayWxpay\wxpayApi\requestParams\unit\NativeByPayUnifiedorderParams;
 use asbamboo\openpayWxpay\wxpayApi\requestParams\RequestParamsInterface;
 use asbamboo\openpayWxpay\wxpayApi\request\tool\BodyTrait;
 use asbamboo\openpayWxpay\wxpayApi\request\tool\CreateRequestTrait;
@@ -17,7 +17,7 @@ use asbamboo\openpayWxpay\wxpayApi\request\tool\CreateRequestTrait;
  * @author 李春寅 <licy2013@aliyun.com>
  * @since 2018年10月12日
  */
-class ScanQRCodeByPayUnifiedorder implements RequestInterface
+class NativeByPayUnifiedorder implements RequestInterface
 {
     use GatewayUriTrait;
     use BodyTrait;
@@ -49,7 +49,7 @@ class ScanQRCodeByPayUnifiedorder implements RequestInterface
      */
     public function assignData(array $assign_data) : RequestInterface
     {
-        $this->RequestParams  = new ScanQRCodeByPayUnifiedorderParams();
+        $this->RequestParams  = new NativeByPayUnifiedorderParams();
         $this->RequestParams->mappingData($assign_data);
         return $this;
     }
