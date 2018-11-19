@@ -4,6 +4,11 @@
  */
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
+// register_shutdown_function(function(){
+//     if($e = error_get_last()){
+//         var_dump($e);
+//     }
+// });
 
 /***************************************************************************************************
  * 启动openpay引导程序
