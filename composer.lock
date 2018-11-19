@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "07bce6c6b167ab4aeab8c0bd202c24dc",
@@ -526,12 +526,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "92ab93e18163df880458f31bd1d4a51239e53a9d"
+                "reference": "73b0d9ac2fd3d5aecc94f1e217b408fe59e3d265"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/92ab93e18163df880458f31bd1d4a51239e53a9d",
-                "reference": "92ab93e18163df880458f31bd1d4a51239e53a9d",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/73b0d9ac2fd3d5aecc94f1e217b408fe59e3d265",
+                "reference": "73b0d9ac2fd3d5aecc94f1e217b408fe59e3d265",
                 "shasum": ""
             },
             "require": {
@@ -587,7 +587,7 @@
                 "iterators",
                 "php"
             ],
-            "time": "2018-10-15T15:10:34+00:00"
+            "time": "2018-11-17T21:20:15+00:00"
         },
         {
             "name": "doctrine/common",
@@ -676,12 +676,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "ce45348a4e5997e488513146463e1fe0a0e40d0c"
+                "reference": "130fa4a138ad039b600a62a1effadf59bce15232"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/ce45348a4e5997e488513146463e1fe0a0e40d0c",
-                "reference": "ce45348a4e5997e488513146463e1fe0a0e40d0c",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/130fa4a138ad039b600a62a1effadf59bce15232",
+                "reference": "130fa4a138ad039b600a62a1effadf59bce15232",
                 "shasum": ""
             },
             "require": {
@@ -750,7 +750,7 @@
                 "php",
                 "queryobject"
             ],
-            "time": "2018-11-16T17:47:36+00:00"
+            "time": "2018-11-17T18:29:24+00:00"
         },
         {
             "name": "doctrine/event-manager",
@@ -2240,12 +2240,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "7d45feb6d9ef604ce14e582b8d738af803db034c"
+                "reference": "4eb794168b7adf1362d128409cbbb8e394073b67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7d45feb6d9ef604ce14e582b8d738af803db034c",
-                "reference": "7d45feb6d9ef604ce14e582b8d738af803db034c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4eb794168b7adf1362d128409cbbb8e394073b67",
+                "reference": "4eb794168b7adf1362d128409cbbb8e394073b67",
                 "shasum": ""
             },
             "require": {
@@ -2316,7 +2316,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-11-16T04:07:47+00:00"
+            "time": "2018-11-18T07:20:15+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
