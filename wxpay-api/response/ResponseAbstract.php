@@ -149,6 +149,13 @@ abstract class ResponseAbstract implements ResponseInterface
             if(property_exists($this, $key)){
                 $this->{$key}   = $value;
             }
+
+            $key_arr    = explode('_', $key);
+            $last       = (string) array_pop($key_arr);
+            $key        = implode('_', $key_arr);
+            if(ctype_digit($last) && property_exists($this, $key)){
+                $this->{$key}[$last]    = $value;
+            }
         }
     }
 
@@ -161,6 +168,9 @@ abstract class ResponseAbstract implements ResponseInterface
      */
     private function checkResponse(string $xml, $decoded_xml)
     {
+        if($decoded_xml['return_code'] != self::RETURN_CODE_SUCCESS){
+            throw new ResponseFormatException($decoded_xml['return_msg'] ?? $xml);
+        }
         if(!isset($decoded_xml['sign'])){
             throw new ResponseFormatException(sprintf('微信返回的响应结果异常,sign不存在[%s]', $xml));
         }
