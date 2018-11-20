@@ -1,8 +1,6 @@
 <?php
 namespace asbamboo\openpayWxpay\wxpayApi\response;
 
-use asbamboo\openpayWxpay\wxpayApi\response\ResponseAbstract;
-
 /**
  * 查询订单 响应结果
  *

@@ -286,12 +286,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/asbamboo/openpay.git",
-                "reference": "fd392a6e68896295c6a46764c11d3ec72492f1b2"
+                "reference": "f4f3e23181c7a7f82272cc2fb95ded0de5d8d37c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asbamboo/openpay/zipball/fd392a6e68896295c6a46764c11d3ec72492f1b2",
-                "reference": "fd392a6e68896295c6a46764c11d3ec72492f1b2",
+                "url": "https://api.github.com/repos/asbamboo/openpay/zipball/f4f3e23181c7a7f82272cc2fb95ded0de5d8d37c",
+                "reference": "f4f3e23181c7a7f82272cc2fb95ded0de5d8d37c",
                 "shasum": ""
             },
             "require": {
@@ -329,7 +329,7 @@
                 "source": "https://github.com/asbamboo/openpay/tree/1.0.0",
                 "issues": "https://github.com/asbamboo/openpay/issues"
             },
-            "time": "2018-11-16T07:23:59+00:00"
+            "time": "2018-11-20T10:07:03+00:00"
         },
         {
             "name": "asbamboo/router",
@@ -2258,7 +2258,7 @@
                 "myclabs/deep-copy": "^1.7",
                 "phar-io/manifest": "^1.0.2",
                 "phar-io/version": "^2.0",
-                "php": "^7.1",
+                "php": "^7.2",
                 "phpspec/prophecy": "^1.7",
                 "phpunit/php-code-coverage": "^6.0.7",
                 "phpunit/php-file-iterator": "^2.0.1",
