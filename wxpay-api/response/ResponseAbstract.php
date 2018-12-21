@@ -145,17 +145,19 @@ abstract class ResponseAbstract implements ResponseInterface
 
         $this->checkResponse($xml, $decoded_xml);
 
+        $setting_json_propertys  = [];
         foreach($decoded_xml AS $key => $value){
-            if(property_exists($this, $key)){
+            if(preg_match('#([a-zA-Z_])+(_)(\$\d+)#', $key, $matches)){
+                $property   = $matches[1] . 's';
+                if(property_exists($this, $property)){
+                    $setting_json_propertys[$property][]    = $value;
+                }
+            }elseif(property_exists($this, $key)){
                 $this->{$key}   = $value;
             }
-
-            $key_arr    = explode('_', $key);
-            $last       = (string) array_pop($key_arr);
-            $key        = implode('_', $key_arr);
-            if(ctype_digit($last) && property_exists($this, $key)){
-                $this->{$key}[$last]    = $value;
-            }
+        }
+        foreach($setting_json_propertys AS $property => $value){
+            $this->{$property}  = $value;
         }
     }
 
@@ -168,9 +170,6 @@ abstract class ResponseAbstract implements ResponseInterface
      */
     private function checkResponse(string $xml, $decoded_xml)
     {
-        if($decoded_xml['return_code'] != self::RETURN_CODE_SUCCESS){
-            throw new ResponseFormatException($decoded_xml['return_msg'] ?? $xml);
-        }
         if(!isset($decoded_xml['sign'])){
             throw new ResponseFormatException(sprintf('微信返回的响应结果异常,sign不存在[%s]', $xml));
         }
