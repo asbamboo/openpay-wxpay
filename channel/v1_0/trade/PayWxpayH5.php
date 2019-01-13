@@ -63,7 +63,7 @@ class PayWxpayH5 implements PayInterface
                 throw $Exception;
             }
             $Response               = new Response();
-            $Response->setRedirectType(Response::REDIRECT_TYPE_PC);
+            $Response->setType(Response::TYPE_H5);
             $Response->setRedirectUrl($WxResponse->get('mweb_url')."&redirect_url=" . urlencode($Request->getReturnUrl()));
             return $Response;
         }catch(ResponseFormatException $e){
