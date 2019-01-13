@@ -144,7 +144,7 @@ class OrderQueryResponse extends ResponseAbstract
      *
      * @var string(20)
      */
-    public $coupon_id;
+    public $coupon_ids;
 
     /**
      * 代金券类型 如（CASH）
@@ -158,7 +158,7 @@ class OrderQueryResponse extends ResponseAbstract
      *
      * @var string
      */
-    public $coupon_type;
+    public $coupon_types;
 
     /**
      * 单个代金券支付金额 如（100）
@@ -169,14 +169,12 @@ class OrderQueryResponse extends ResponseAbstract
      *
      * @var int
      */
-    public $coupon_fee;
+    public $coupon_fees;
 
     /**
      * 微信支付订单号 如（1009660380201506130728806387）
      * 必填
      * 微信支付订单号
-     *
-     * coupon_fee_$n
      *
      * @var string(32)
      */

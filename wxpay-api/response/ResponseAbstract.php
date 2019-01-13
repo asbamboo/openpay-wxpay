@@ -145,10 +145,19 @@ abstract class ResponseAbstract implements ResponseInterface
 
         $this->checkResponse($xml, $decoded_xml);
 
+        $setting_json_propertys  = [];
         foreach($decoded_xml AS $key => $value){
-            if(property_exists($this, $key)){
+            if(preg_match('#([a-zA-Z_])+(_)(\$\d+)#', $key, $matches)){
+                $property   = $matches[1] . 's';
+                if(property_exists($this, $property)){
+                    $setting_json_propertys[$property][]    = $value;
+                }
+            }elseif(property_exists($this, $key)){
                 $this->{$key}   = $value;
             }
+        }
+        foreach($setting_json_propertys AS $property => $value){
+            $this->{$property}  = $value;
         }
     }
 
