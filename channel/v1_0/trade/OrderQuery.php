@@ -36,7 +36,12 @@ class OrderQuery implements QueryInterface
                 'mch_id'            => (string) EnvHelper::get(Env::WXPAY_MCH_ID),
                 'out_trade_no'      => $Request->getInTradeNo(),
             ];
-
+            $wx_params          = json_decode((string) $Request->getThirdPart(), true);
+            if(is_array($wx_params)){
+                foreach($wx_params AS $wx_key => $wx_value){
+                    $request_data[$wx_key] = $wx_value;
+                }
+            }
             $WxResponse                             = Client::request('H5ByPayUnifiedorder', $request_data);
             if(     $WxResponse->get('return_code') != OrderQueryResponse::RETURN_CODE_SUCCESS
                 ||  $WxResponse->get('result_code') != OrderQueryResponse::RESULT_CODE_SUCCESS

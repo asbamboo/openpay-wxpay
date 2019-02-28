@@ -12,22 +12,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/asbamboo/api.git",
-                "reference": "6a1c8d8d39e22d3c1153aeec5bd70fe29137bde1"
+                "reference": "798d1f401ed87c7f765d7d47e1cd66d1a5b9a121"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asbamboo/api/zipball/6a1c8d8d39e22d3c1153aeec5bd70fe29137bde1",
-                "reference": "6a1c8d8d39e22d3c1153aeec5bd70fe29137bde1",
+                "url": "https://api.github.com/repos/asbamboo/api/zipball/798d1f401ed87c7f765d7d47e1cd66d1a5b9a121",
+                "reference": "798d1f401ed87c7f765d7d47e1cd66d1a5b9a121",
                 "shasum": ""
             },
             "require": {
                 "asbamboo/autoload": "^1.0",
-                "asbamboo/di": "^1.0",
                 "asbamboo/event": "^1.0",
-                "asbamboo/http": "^1.0"
+                "asbamboo/http": "^1.0",
+                "asbamboo/router": "^1.0",
+                "php": "^7.2",
+                "psr/container": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.3@dev"
+                "asbamboo/di": "^1.0",
+                "phpunit/phpunit": "^7.3"
             },
             "type": "library",
             "license": [
@@ -44,7 +47,7 @@
                 "source": "https://github.com/asbamboo/api/tree/1.0.0",
                 "issues": "https://github.com/asbamboo/api/issues"
             },
-            "time": "2019-02-23T01:45:17+00:00"
+            "time": "2019-02-26T09:04:10+00:00"
         },
         {
             "name": "asbamboo/autoload",
@@ -183,17 +186,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/asbamboo/di.git",
-                "reference": "e5c948477745313ba55dfa389646e0a909186778"
+                "reference": "90dda5015b54439a10979fedef939354e6e7b80c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asbamboo/di/zipball/e5c948477745313ba55dfa389646e0a909186778",
-                "reference": "e5c948477745313ba55dfa389646e0a909186778",
+                "url": "https://api.github.com/repos/asbamboo/di/zipball/90dda5015b54439a10979fedef939354e6e7b80c",
+                "reference": "90dda5015b54439a10979fedef939354e6e7b80c",
                 "shasum": ""
             },
             "require": {
                 "asbamboo/autoload": "^1.0",
-                "php": "^7.2"
+                "php": "^7.2",
+                "psr/container": "^1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^7.2"
@@ -208,12 +212,12 @@
                     "email": "licy2013@aliyun.com"
                 }
             ],
-            "description": "依赖注入模块",
+            "description": "基于psr/container(PHP FIG PSR-11)的Container模块",
             "support": {
                 "source": "https://github.com/asbamboo/di/tree/1.0.2",
                 "issues": "https://github.com/asbamboo/di/issues"
             },
-            "time": "2018-11-30T12:59:47+00:00"
+            "time": "2019-02-26T02:01:10+00:00"
         },
         {
             "name": "asbamboo/event",
@@ -306,12 +310,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/asbamboo/http.git",
-                "reference": "49a8b4c035bcbbc672f6ffcf956dd4b919be1234"
+                "reference": "3030e8f8f78454f6eeeb7fbcae024ce702660a4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asbamboo/http/zipball/49a8b4c035bcbbc672f6ffcf956dd4b919be1234",
-                "reference": "49a8b4c035bcbbc672f6ffcf956dd4b919be1234",
+                "url": "https://api.github.com/repos/asbamboo/http/zipball/3030e8f8f78454f6eeeb7fbcae024ce702660a4a",
+                "reference": "3030e8f8f78454f6eeeb7fbcae024ce702660a4a",
                 "shasum": ""
             },
             "require": {
@@ -337,7 +341,7 @@
                 "source": "https://github.com/asbamboo/http/tree/1.1.0",
                 "issues": "https://github.com/asbamboo/http/issues"
             },
-            "time": "2019-01-21T06:19:38+00:00"
+            "time": "2019-02-26T02:53:20+00:00"
         },
         {
             "name": "asbamboo/openpay",
@@ -345,12 +349,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/asbamboo/openpay.git",
-                "reference": "1220bb3223effdab5ecbedc7c8988f1201ee11db"
+                "reference": "61df921d20e882cceee8570508d92eb030e32a53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asbamboo/openpay/zipball/1220bb3223effdab5ecbedc7c8988f1201ee11db",
-                "reference": "1220bb3223effdab5ecbedc7c8988f1201ee11db",
+                "url": "https://api.github.com/repos/asbamboo/openpay/zipball/61df921d20e882cceee8570508d92eb030e32a53",
+                "reference": "61df921d20e882cceee8570508d92eb030e32a53",
                 "shasum": ""
             },
             "require": {
@@ -388,7 +392,7 @@
                 "source": "https://github.com/asbamboo/openpay/tree/1.0.0",
                 "issues": "https://github.com/asbamboo/openpay/issues"
             },
-            "time": "2019-02-25T05:36:57+00:00"
+            "time": "2019-02-28T02:29:58+00:00"
         },
         {
             "name": "asbamboo/router",
@@ -434,12 +438,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "232c5da3903f788e02328b4e8486eceea0c76e58"
+                "reference": "d1f9756e7f0fdf2f9dc1704450857a8b6e29ce09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/232c5da3903f788e02328b4e8486eceea0c76e58",
-                "reference": "232c5da3903f788e02328b4e8486eceea0c76e58",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/d1f9756e7f0fdf2f9dc1704450857a8b6e29ce09",
+                "reference": "d1f9756e7f0fdf2f9dc1704450857a8b6e29ce09",
                 "shasum": ""
             },
             "require": {
@@ -494,7 +498,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2018-05-06T10:14:50+00:00"
+            "time": "2019-02-26T17:20:11+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -735,12 +739,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "f5ddd0974ff7020d51401a4da1186172d412c7dc"
+                "reference": "d3d09e29d86efb9a7ea39ac9d5e0ae172b354f83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/f5ddd0974ff7020d51401a4da1186172d412c7dc",
-                "reference": "f5ddd0974ff7020d51401a4da1186172d412c7dc",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/d3d09e29d86efb9a7ea39ac9d5e0ae172b354f83",
+                "reference": "d3d09e29d86efb9a7ea39ac9d5e0ae172b354f83",
                 "shasum": ""
             },
             "require": {
@@ -809,7 +813,7 @@
                 "php",
                 "queryobject"
             ],
-            "time": "2019-02-23T17:02:09+00:00"
+            "time": "2019-02-26T17:13:59+00:00"
         },
         {
             "name": "doctrine/event-manager",
@@ -1310,6 +1314,55 @@
                 "static"
             ],
             "time": "2018-12-12T20:24:29+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "014d250daebff39eba15ba990eeb2a140798e77c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/014d250daebff39eba15ba990eeb2a140798e77c",
+                "reference": "014d250daebff39eba15ba990eeb2a140798e77c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "time": "2018-12-29T15:36:03+00:00"
         },
         {
             "name": "psr/http-message",
