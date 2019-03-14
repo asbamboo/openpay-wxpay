@@ -3,13 +3,13 @@ namespace asbamboo\openpayWxpay\wxpayApi\request;
 
 use asbamboo\openpayWxpay\wxpayApi\gateway\GatewayUriTrait;
 use asbamboo\http\UriInterface;
-use asbamboo\openpayWxpay\wxpayApi\requestParams\unit\H5ByPayUnifiedorderParams;
 use asbamboo\openpayWxpay\wxpayApi\requestParams\RequestParamsInterface;
 use asbamboo\openpayWxpay\wxpayApi\request\tool\BodyTrait;
 use asbamboo\openpayWxpay\wxpayApi\request\tool\CreateRequestTrait;
+use asbamboo\openpayWxpay\wxpayApi\requestParams\unit\AppByPayUnifiedorderParams;
 
 /**
- * 微信H5支付 统一下单接口
+ * 微信App支付 统一下单接口
  *
  * https://api.mch.weixin.qq.com/pay/unifiedorder
  *
@@ -17,7 +17,7 @@ use asbamboo\openpayWxpay\wxpayApi\request\tool\CreateRequestTrait;
  * @author 李春寅 <licy2013@aliyun.com>
  * @since 2018年10月12日
  */
-class H5ByPayUnifiedorder implements RequestInterface
+class AppByPayUnifiedorder implements RequestInterface
 {
     use GatewayUriTrait;
     use BodyTrait;
@@ -49,7 +49,7 @@ class H5ByPayUnifiedorder implements RequestInterface
      */
     public function assignData(array $assign_data) : RequestInterface
     {
-        $this->RequestParams  = new H5ByPayUnifiedorderParams();
+        $this->RequestParams  = new AppByPayUnifiedorderParams();
         $this->RequestParams->mappingData($assign_data);
         return $this;
     }
