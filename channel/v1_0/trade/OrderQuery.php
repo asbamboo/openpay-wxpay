@@ -42,7 +42,7 @@ class OrderQuery implements QueryInterface
                     $request_data[$wx_key] = $wx_value;
                 }
             }
-            $WxResponse                             = Client::request('H5ByPayUnifiedorder', $request_data);
+            $WxResponse                             = Client::request('OrderQuery', $request_data);
             if(     $WxResponse->get('return_code') != OrderQueryResponse::RETURN_CODE_SUCCESS
                 ||  $WxResponse->get('result_code') != OrderQueryResponse::RESULT_CODE_SUCCESS
             ){
