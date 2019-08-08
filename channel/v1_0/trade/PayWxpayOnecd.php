@@ -52,7 +52,7 @@ class PayWxpayOnecd implements PayInterface
                 }
             }
 
-            $WxResponse                             = Client::request('H5ByPayUnifiedorder', $request_data);
+            $WxResponse                             = Client::request('JSAPIByPayUnifiedorder', $request_data);
             if(     $WxResponse->get('return_code') != NativeByPayUnifiedorderResponse::RETURN_CODE_SUCCESS
                 ||  $WxResponse->get('result_code') != NativeByPayUnifiedorderResponse::RESULT_CODE_SUCCESS
             ){
