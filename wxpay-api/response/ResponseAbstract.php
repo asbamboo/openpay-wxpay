@@ -5,6 +5,7 @@ use asbamboo\http\ResponseInterface AS HttpResponseInterface;
 use asbamboo\openpayWxpay\exception\ResponseFormatException;
 use asbamboo\openpayWxpay\wxpayApi\sign\SignType;
 use asbamboo\openpayWxpay\wxpayApi\sign\SignTrait;
+use asbamboo\openpay\apiStore\exception\Api3NotSuccessResponseException;
 
 /**
  * 响应结果公共参数
@@ -61,7 +62,21 @@ abstract class ResponseAbstract implements ResponseInterface
      * @var string(32)
      */
     protected $mch_id;
+    
+    /**
+     * 微信分配的子商户公众账号ID
+     * 
+     * @var string(32)
+     */
+    protected $sub_appid;
 
+    /**
+     * 微信支付分配的子商户号
+     *
+     * @var string(32)
+     */
+    protected $sub_mch_id;
+    
     /**
      * [RETURN_CODE_SUCCESS] 可选
      *
@@ -112,7 +127,7 @@ abstract class ResponseAbstract implements ResponseInterface
     /**
      *
      * {@inheritDoc}
-     * @see \asbamboo\openpay\common\ResponseInterface::__construct()
+     * @see ResponseInterface::__construct()
      */
     public function __construct(HttpResponseInterface $Response)
     {
@@ -122,7 +137,7 @@ abstract class ResponseAbstract implements ResponseInterface
     /**
      *
      * {@inheritDoc}
-     * @see \asbamboo\openpay\common\ResponseInterface::get()
+     * @see ResponseInterface::get()
      */
     public function get(string $key)
     {
@@ -171,14 +186,14 @@ abstract class ResponseAbstract implements ResponseInterface
     private function checkResponse(string $xml, $decoded_xml)
     {
         if(!isset($decoded_xml['sign'])){
-            throw new ResponseFormatException(sprintf('微信返回的响应结果异常,sign不存在[%s]', $xml));
+            throw new Api3NotSuccessResponseException(sprintf('微信返回的响应结果异常,sign不存在[%s]', $xml));
         }
         $sign_type  = isset( $decoded_xml['sign_type'] ) ? $decoded_xml['sign_type'] : null;
         if(is_null($sign_type)){
             $sign_type  = strlen( $decoded_xml['sign'] ) > 32 ? SignType::HMAC_SHA256 : SignType::MD5;
         }
         if($decoded_xml['sign'] != $this->makeSign($decoded_xml, $sign_type)){
-            throw new ResponseFormatException(sprintf('微信返回的响应结果异常,sign错误[%s]', $json));
+            throw new Api3NotSuccessResponseException(sprintf('微信返回的响应结果异常,sign错误[%s]', $xml));
         }
     }
 }

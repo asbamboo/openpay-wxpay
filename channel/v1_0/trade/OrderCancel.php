@@ -72,8 +72,9 @@ class OrderCancel implements CancelInterface
     public function supports() : array
     {
         return [
-            Constant::CHANNEL_WXPAY_H5     => Constant::CHANNEL_WXPAY_H5_LABEL,
-            Constant::CHANNEL_WXPAY_QRCD   => Constant::CHANNEL_WXPAY_QRCD_LABEL,
+            Constant::CHANNEL_WXPAY_ONECD   => Constant::CHANNEL_WXPAY_ONECD_LABEL,
+            Constant::CHANNEL_WXPAY_H5      => Constant::CHANNEL_WXPAY_H5_LABEL,
+            Constant::CHANNEL_WXPAY_QRCD    => Constant::CHANNEL_WXPAY_QRCD_LABEL,
         ];
     }
 }

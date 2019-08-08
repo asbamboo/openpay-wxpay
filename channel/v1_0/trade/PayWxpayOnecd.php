@@ -15,19 +15,19 @@ use asbamboo\openpay\channel\v1_0\trade\payParameter\Response;
 use asbamboo\openpay\channel\v1_0\trade\payParameter\NotifyResult;
 use asbamboo\openpay\channel\v1_0\trade\PayInterface;
 use asbamboo\openpayWxpay\wxpayApi\response\NativeByPayUnifiedorderResponse;
-use asbamboo\openpayWxpay\wxpayApi\sign\SignTrait;
 use asbamboo\openpayWxpay\wxpayApi\sign\SignType;
+use asbamboo\openpayWxpay\wxpayApi\sign\SignTrait;
 
 /**
- * openpay[trade.pay] 渠道:微信APP支付
+ * openpay[trade.pay] 渠道:微信扫码支付
  *
  * @author 李春寅 <licy2013@aliyun.com>
- * @since 2019年2月25日
+ * @since 2018年10月22日
  */
-class PayWxpayApp implements PayInterface
+class PayWxpayOnecd implements PayInterface
 {
     use SignTrait;
-
+    
     /**
      *
      * {@inheritDoc}
@@ -52,7 +52,7 @@ class PayWxpayApp implements PayInterface
                 }
             }
 
-            $WxResponse                             = Client::request('AppByPayUnifiedorder', $request_data);
+            $WxResponse                             = Client::request('JSAPIByPayUnifiedorder', $request_data);
             if(     $WxResponse->get('return_code') != NativeByPayUnifiedorderResponse::RETURN_CODE_SUCCESS
                 ||  $WxResponse->get('result_code') != NativeByPayUnifiedorderResponse::RESULT_CODE_SUCCESS
             ){
@@ -66,19 +66,18 @@ class PayWxpayApp implements PayInterface
                 $Exception->setApiResponseParams($ApiResponseParams);
                 throw $Exception;
             }
-
-            $app_pay_data               = [];
-            $app_pay_data['appid']      = $WxResponse->get('appid');
-            $app_pay_data['partnerid']  = $WxResponse->get('mch_id');
-            $app_pay_data['prepayid']   = $WxResponse->get('prepay_id');
-            $app_pay_data['package']    = 'Sign=WXPay';
-            $app_pay_data['noncestr']   = $WxResponse->get('nonce_str');
-            $app_pay_data['timestamp']  = time();
-            $app_pay_data['sign']       = $this->makeSign($app_pay_data, SignType::MD5);
-
-            $Response       = new Response();
-            $Response->setType(Response::TYPE_APP);
-            $Response->setAppPayJson(json_encode($app_pay_data));
+            $onecd_pay_data                 = [];
+            $onecd_pay_data['appid']        = $WxResponse->get('appid');
+            $onecd_pay_data['timestamp']    = time();
+            $onecd_pay_data['noncestr']     = $WxResponse->get('nonce_str');
+            $onecd_pay_data['package']      = 'prepay_id=' . $WxResponse->get('prepay_id');
+            $onecd_pay_data['signType']     = SignType::MD5;
+            $onecd_pay_data['paySign']      = $this->makeSign($onecd_pay_data, SignType::MD5);
+            
+            $Response               = new Response();
+            $Response->setType(Response::TYPE_ONECD);
+            $Response->setOnecdPayJson(json_encode($onecd_pay_data));
+            
             return $Response;
         }catch(ResponseFormatException $e){
             throw new ApiException($e->getMessage());
@@ -113,7 +112,7 @@ class PayWxpayApp implements PayInterface
     public function supports() : array
     {
         return [
-            Constant::CHANNEL_WXPAY_APP   => Constant::CHANNEL_WXPAY_APP_LABEL,
+            Constant::CHANNEL_WXPAY_ONECD   => Constant::CHANNEL_WXPAY_ONECD_LABEL,
         ];
     }
 }

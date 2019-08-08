@@ -33,6 +33,9 @@
             "email": "licy2013@aliyun.com"
         }
     ],
+    "extra": {
+    	"asbamboo-openpay-channel"	: ["channel"]
+    },
     "license": "BSD-3-Clause",
     "minimum-stability": "dev"
 }
