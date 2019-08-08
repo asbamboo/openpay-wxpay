@@ -7,7 +7,7 @@ namespace asbamboo\openpayWxpay\wxpayApi\response;
  * @author 李春寅 <licy2013@aliyun.com>
  * @since 2018年10月12日
  */
-class H5ByPayUnifiedorderResponse extends ResponseAbstract
+class JSAPIByPayUnifiedorderResponse extends ResponseAbstract
 {
     /**
      * 必填
@@ -31,9 +31,9 @@ class H5ByPayUnifiedorderResponse extends ResponseAbstract
     /**
      * 必填
      * 支付跳转链接
-     * mweb_url为拉起微信支付收银台的中间页面，可通过访问该url来拉起微信客户端，完成支付,mweb_url的有效期为5分钟。
+     * trade_type为NATIVE时有返回，用于生成二维码，展示给用户进行扫码支付
      *
      * @var String(64)
      */
-    public $mweb_url;
+    public $code_url;
 }
