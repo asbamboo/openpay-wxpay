@@ -67,9 +67,9 @@ class PayWxpayOnecd implements PayInterface
                 throw $Exception;
             }
             $onecd_pay_data                 = [];
-            $onecd_pay_data['appid']        = $WxResponse->get('appid');
-            $onecd_pay_data['timestamp']    = time();
-            $onecd_pay_data['noncestr']     = $WxResponse->get('nonce_str');
+            $onecd_pay_data['appId']        = $WxResponse->get('appid');
+            $onecd_pay_data['timeStamp']    = time();
+            $onecd_pay_data['nonceStr']     = $WxResponse->get('nonce_str');
             $onecd_pay_data['package']      = 'prepay_id=' . $WxResponse->get('prepay_id');
             $onecd_pay_data['signType']     = SignType::MD5;
             $onecd_pay_data['paySign']      = $this->makeSign($onecd_pay_data, SignType::MD5);
