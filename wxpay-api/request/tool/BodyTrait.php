@@ -22,6 +22,9 @@ trait BodyTrait
         $xml    = [];
         $xml[]  = "<xml>";
         foreach($this->RequestParams AS $key => $value){
+            if(is_null($value)){
+                continue;
+            }
             if(is_numeric($value)){
                 $xml[]  = '<' . $key . '>' . $value . '</' . $key . '>';
             }else{
@@ -30,7 +33,6 @@ trait BodyTrait
         }
         $xml[]  = '</xml>';
         $xml    = implode('', $xml);
-
         $Stream = new Stream('php://temp', 'w+b');
         $Stream->write($xml);
         return $Stream;

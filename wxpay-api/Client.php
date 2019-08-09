@@ -8,6 +8,8 @@ use asbamboo\http\RequestInterface AS HttpRequestInterface;
 use asbamboo\http\ResponseInterface AS HttpResponseInterface;
 use asbamboo\openpayWxpay\exception\NotFindApiResponseException;
 use asbamboo\http\Client AS HttpClient;
+use asbamboo\helper\env\Env AS EnvHelper;
+use asbamboo\openpayWxpay\Env;
 
 /**
  *
@@ -23,6 +25,19 @@ class Client implements ClientInterface
      */
     public static function request(string $api_name, array $assign_data = []) : ResponseInterface
     {
+        if(strpos(EnvHelper::get(Env::WXPAY_GATEWAY_URI), '/sandboxnew/')){
+            // 如果是沙箱环境，需要获取沙箱环境的秘钥 
+            $Request        = static::createRequest('SandBoxSign');
+            $Request        = $Request->assignData([
+                'mch_id'    => EnvHelper::get(Env::WXPAY_MCH_ID),
+            ]);
+            $HttpRequest    = $Request->create();
+            $HttpResponse   = static::sendRequest($HttpRequest);
+            $Response       = static::transformResponse('SandBoxSign', $HttpResponse);
+                        
+            EnvHelper::set(Env::WXPAY_SIGN_KEY, $Response->get('sandbox_signkey'));
+        }
+        
         $Request        = static::createRequest($api_name);
         $Request        = $Request->assignData($assign_data);
         $HttpRequest    = $Request->create();
