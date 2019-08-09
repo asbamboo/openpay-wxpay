@@ -24,7 +24,6 @@ trait SignTrait
     public function makeSign(array $data, string $sign_type) : string
     {
         $sign_str       = $this->getSignString($data);
-
         if($sign_type == SignType::MD5){
             return strtoupper(md5($sign_str));
         }else if($sign_type = SignType::HMAC_SHA256){

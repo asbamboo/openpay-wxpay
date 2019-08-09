@@ -154,9 +154,13 @@ abstract class ResponseAbstract implements ResponseInterface
         /**
          * 将XML转为array 禁止引用外部xml实体
          */
-        libxml_disable_entity_loader(true);
-        $xml            = $Response->getBody()->getContents();
-        $decoded_xml    = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+        try{
+            $xml            = $Response->getBody()->getContents();
+            libxml_disable_entity_loader(true);
+            $decoded_xml    = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+        }catch(\Exception $e){
+            throw new Api3NotSuccessResponseException(sprintf('微信返回的响应结果异常[%s]', $xml));
+        }
 
         $this->checkResponse($xml, $decoded_xml);
 

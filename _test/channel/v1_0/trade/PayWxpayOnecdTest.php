@@ -33,10 +33,12 @@ class PayWxpayOnecdTest extends TestCase
         $_REQUEST['version']        = 'v1.0';
         $_REQUEST['format']         = 'json';
         $_REQUEST['channel']        = 'WXPAY_ONECD';
-        $_REQUEST['title']          = 'test WXPAY_ONECD';
+        $_REQUEST['title']          = 'test-WXPAY_ONECD';
         $_REQUEST['out_trade_no']   = strtotime('YmdHis') . rand(0, 9999);
         $_REQUEST['total_fee']      = rand(0, 9999);
         $_REQUEST['client_ip']      = '123.123.123.123';
+        $_REQUEST['third_part']     = json_encode(['openid' => 'ovhlXwxINNWZtyyR9QzEoUokoFtI']);
+        
         ob_start();
         include dirname(dirname(dirname(dirname(__DIR__)))) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'index.php';
         $data       = ob_get_contents();
