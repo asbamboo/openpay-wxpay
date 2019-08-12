@@ -14,6 +14,7 @@ use asbamboo\openpayWxpay\wxpayApi\response\OrderQueryResponse;
 use asbamboo\openpay\apiStore\exception\Api3NotSuccessResponseException;
 use asbamboo\api\apiStore\ApiResponseParams;
 use asbamboo\openpayWxpay\channel\v1_0\traits\TradeStateTrait;
+use asbamboo\openpay\Constant AS OpenpayConstant;
 
 /**
  * 订单查询
@@ -45,6 +46,21 @@ class OrderQuery implements QueryInterface
                 }
             }
             $WxResponse                             = Client::request('OrderQuery', $request_data);
+            
+            /**
+             * 当Wxpay返回的响应值表示订单没有创建时，应该用订单未支付的状态作为响应值。
+             */
+            if(     $WxResponse->get('return_code') == OrderQueryResponse::RETURN_CODE_SUCCESS
+                &&  $WxResponse->get('result_code') == OrderQueryResponse::RESULT_CODE_FAIL
+                &&  $WxResponse->get('err_code')    == 'ORDERNOTEXIST'
+            ){
+                    $Response           = new Response();
+                    $Response->setInTradeNo($Request->getInTradeNo());
+                    $Response->setThirdTradeNo("");
+                    $Response->setTradeStatus(OpenpayConstant::TRADE_PAY_TRADE_STATUS_NOPAY);
+                    return $Response;
+            }
+            
             if(     $WxResponse->get('return_code') != OrderQueryResponse::RETURN_CODE_SUCCESS
                 ||  $WxResponse->get('result_code') != OrderQueryResponse::RESULT_CODE_SUCCESS
             ){

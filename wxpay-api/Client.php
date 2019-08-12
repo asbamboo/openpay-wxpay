@@ -25,7 +25,7 @@ class Client implements ClientInterface
      */
     public static function request(string $api_name, array $assign_data = []) : ResponseInterface
     {
-        if(strpos(EnvHelper::get(Env::WXPAY_GATEWAY_URI), '/sandboxnew/')){
+        if(strpos(EnvHelper::get(Env::WXPAY_GATEWAY_URI), 'sandboxnew')){
             // 如果是沙箱环境，需要获取沙箱环境的秘钥 
             $Request        = static::createRequest('SandBoxSign');
             $Request        = $Request->assignData([

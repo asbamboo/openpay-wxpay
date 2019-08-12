@@ -30,7 +30,8 @@ abstract class ResponseAbstract implements ResponseInterface
      * @var string
      */
     CONST RESULT_CODE_SUCCESS   = 'SUCCESS';
-
+    CONST RESULT_CODE_FAIL      = 'FAIL';
+    
     /**
      * 必填
      * 返回状态码
