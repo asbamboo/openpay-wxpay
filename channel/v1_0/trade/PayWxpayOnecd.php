@@ -1,7 +1,6 @@
 <?php
 namespace asbamboo\openpayWxpay\channel\v1_0\trade;
 
-use asbamboo\http\ServerRequestInterface;
 use asbamboo\helper\env\Env AS EnvHelper;
 use asbamboo\openpay\apiStore\exception\Api3NotSuccessResponseException;
 use asbamboo\api\apiStore\ApiResponseParams;
@@ -12,11 +11,11 @@ use asbamboo\openpayWxpay\exception\ResponseFormatException;
 use asbamboo\openpayWxpay\Constant;
 use asbamboo\openpay\channel\v1_0\trade\payParameter\Request;
 use asbamboo\openpay\channel\v1_0\trade\payParameter\Response;
-use asbamboo\openpay\channel\v1_0\trade\payParameter\NotifyResult;
 use asbamboo\openpay\channel\v1_0\trade\PayInterface;
 use asbamboo\openpayWxpay\wxpayApi\response\NativeByPayUnifiedorderResponse;
 use asbamboo\openpayWxpay\wxpayApi\sign\SignType;
 use asbamboo\openpayWxpay\wxpayApi\sign\SignTrait;
+use asbamboo\openpayWxpay\channel\v1_0\traits\NotifyTrait;
 
 /**
  * openpay[trade.pay] 渠道:微信扫码支付
@@ -26,7 +25,7 @@ use asbamboo\openpayWxpay\wxpayApi\sign\SignTrait;
  */
 class PayWxpayOnecd implements PayInterface
 {
-    use SignTrait;
+    use NotifyTrait;
     
     /**
      *
@@ -82,26 +81,6 @@ class PayWxpayOnecd implements PayInterface
         }catch(ResponseFormatException $e){
             throw new ApiException($e->getMessage());
         }
-    }
-
-    /**
-     *
-     * {@inheritDoc}
-     * @see \asbamboo\openpay\channel\v1_0\trade\PayInterface::notify()
-     */
-    public function notify(ServerRequestInterface $Request): NotifyResult
-    {
-
-    }
-
-    /**
-     *
-     * {@inheritDoc}
-     * @see \asbamboo\openpay\channel\v1_0\trade\PayInterface::notify()
-     */
-    public function return(ServerRequestInterface $Request): NotifyResult
-    {
-
     }
 
     /**
