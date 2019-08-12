@@ -78,7 +78,7 @@ class OrderQuery implements QueryInterface
             $Response           = new Response();
             $Response->setInTradeNo($WxResponse->get('out_trade_no'));
             $Response->setThirdTradeNo($WxResponse->get('transaction_id'));
-            $Response->setTradeStatus($this->convertTradeStatus($WxResponse->get('trade_state')));
+            $Response->setTradeStatus($this->convertTradeState($WxResponse->get('trade_state')));
 
             return $Response;
         }catch(ResponseFormatException $e){
