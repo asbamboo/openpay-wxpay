@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07bce6c6b167ab4aeab8c0bd202c24dc",
+    "content-hash": "4470322443b225da866c6ac6987bd1ed",
     "packages": [
         {
             "name": "asbamboo/api",
@@ -310,12 +310,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/asbamboo/http.git",
-                "reference": "3030e8f8f78454f6eeeb7fbcae024ce702660a4a"
+                "reference": "ebcf5f3d2246f994b40440600122cd4409682dde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asbamboo/http/zipball/3030e8f8f78454f6eeeb7fbcae024ce702660a4a",
-                "reference": "3030e8f8f78454f6eeeb7fbcae024ce702660a4a",
+                "url": "https://api.github.com/repos/asbamboo/http/zipball/ebcf5f3d2246f994b40440600122cd4409682dde",
+                "reference": "ebcf5f3d2246f994b40440600122cd4409682dde",
                 "shasum": ""
             },
             "require": {
@@ -341,7 +341,7 @@
                 "source": "https://github.com/asbamboo/http/tree/1.1.0",
                 "issues": "https://github.com/asbamboo/http/issues"
             },
-            "time": "2019-02-26T02:53:20+00:00"
+            "time": "2019-08-11T12:44:41+00:00"
         },
         {
             "name": "asbamboo/openpay",

@@ -4,7 +4,6 @@ namespace asbamboo\openpayWxpay\channel\v1_0\trade;
 use asbamboo\openpay\channel\v1_0\trade\QueryInterface;
 use asbamboo\openpay\channel\v1_0\trade\queryParameter\Request;
 use asbamboo\openpay\channel\v1_0\trade\queryParameter\Response;
-use asbamboo\openpay\Constant AS OpenpayConstant;
 use asbamboo\openpayWxpay\Constant;
 use asbamboo\openpayWxpay\exception\ResponseFormatException;
 use asbamboo\api\exception\ApiException;
@@ -14,6 +13,7 @@ use asbamboo\openpayWxpay\wxpayApi\Client;
 use asbamboo\openpayWxpay\wxpayApi\response\OrderQueryResponse;
 use asbamboo\openpay\apiStore\exception\Api3NotSuccessResponseException;
 use asbamboo\api\apiStore\ApiResponseParams;
+use asbamboo\openpayWxpay\channel\v1_0\traits\TradeStateTrait;
 
 /**
  * 订单查询
@@ -23,6 +23,8 @@ use asbamboo\api\apiStore\ApiResponseParams;
  */
 class OrderQuery implements QueryInterface
 {
+    use TradeStateTrait;
+    
     /**
      *
      * {@inheritDoc}
@@ -68,23 +70,7 @@ class OrderQuery implements QueryInterface
         }
     }
 
-    /**
-     * 转换交易状态
-     *
-     * @param string $alipay_trade_status
-     */
-    private function convertTradeState(string $trade_state)
-    {
-        return [
-            'SUCCESS'       => OpenpayConstant::TRADE_PAY_TRADE_STATUS_PAYOK, //（支付成功）
-            'REFUND'        => OpenpayConstant::TRADE_PAY_TRADE_STATUS_PAYOK, //（转入退款）
-            'NOTPAY'        => OpenpayConstant::TRADE_PAY_TRADE_STATUS_NOPAY, //（未支付）
-            'CLOSED'        => OpenpayConstant::TRADE_PAY_TRADE_STATUS_CANCEL, //（已关闭）
-            'REVOKED'       => OpenpayConstant::TRADE_PAY_TRADE_STATUS_CANCEL, //（已撤销（刷卡支付））
-            'USERPAYING'    => OpenpayConstant::TRADE_PAY_TRADE_STATUS_PAYING, //（用户支付中）
-            'PAYERROR'      => OpenpayConstant::TRADE_PAY_TRADE_STATUS_PAYFAILED, //（支付失败(其他原因，如银行返回失败)）
-        ][$trade_state];
-    }
+    
 
     /**
      *
