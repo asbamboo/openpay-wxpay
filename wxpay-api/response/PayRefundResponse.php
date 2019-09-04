@@ -16,7 +16,7 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var string(32)
      */
-    private $transaction_id;
+    public $transaction_id;
 
     /**
      * 商户订单号 如（1217752501201407033233368018）
@@ -25,7 +25,7 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var string(32)
      */
-    private $out_trade_no;
+    public $out_trade_no;
 
     /**
      * 商户退款单号 如（1217752501201407033233368018）
@@ -34,7 +34,7 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var string(64)
      */
-    private $out_refund_no;
+    public $out_refund_no;
 
     /**
      * 微信退款单号 如（1217752501201407033233368018）
@@ -43,7 +43,7 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var string(32)
      */
-    private $refund_id;
+    public $refund_id;
 
     /**
      * 申请退款金额 如（100）
@@ -52,7 +52,7 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var int
      */
-    private $refund_fee;
+    public $refund_fee;
 
     /**
      * 退款金额 如（100）
@@ -61,7 +61,7 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var int
      */
-    private $settlement_refund_fee;
+    public $settlement_refund_fee;
 
     /**
      * 订单金额 如（100）
@@ -70,7 +70,7 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var int
      */
-    private $total_fee;
+    public $total_fee;
 
     /**
      * 应结订单金额 如（100）
@@ -79,7 +79,7 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var int
      */
-    private $settlement_total_fee;
+    public $settlement_total_fee;
 
     /**
      * 货币种类 如（CNY）
@@ -88,7 +88,7 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var string(8)
      */
-    private $fee_type;
+    public $fee_type;
 
     /**
      * 现金支付金额 如（100）
@@ -97,7 +97,14 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var int
      */
-    private $cash_fee;
+    public $cash_fee;
+    
+    /**
+     * 货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见货币类型
+     * 必填
+     * @var string(16)
+     */
+    public $cash_fee_type;
 
     /**
      * 现金退款金额 如（100）
@@ -106,25 +113,7 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var int
      */
-    private $cash_refund_fee;
-
-    /**
-     * 代金券退款总金额 如（100）
-     * 可选
-     * 代金券退款金额<=退款金额，退款金额-代金券或立减优惠退款金额为现金，说明详见代金券或立减优惠
-     *
-     * @var int
-     */
-    private $coupon_refund_fee;
-
-    /**
-     * 退款代金券使用数量 如（1）
-     * 可选
-     * 退款代金券使用数量
-     *
-     * @var int
-     */
-    private $coupon_refund_count;
+    public $cash_refund_fee;
 
     /**
      * 代金券类型 如（CASH）
@@ -138,27 +127,44 @@ class PayRefundResponse extends ResponseAbstract
      *
      * @var string(8)
      */
-    private $coupon_type;
+    public $coupon_types;
+    
+    /**
+     * 代金券退款总金额 如（100）
+     * 可选
+     * 代金券退款金额<=退款金额，退款金额-代金券或立减优惠退款金额为现金，说明详见代金券或立减优惠
+     *
+     * @var int
+     */
+    public $coupon_refund_fee;
+
+    /**
+     * 代金券退款金额<=退款金额，退款金额-代金券或立减优惠退款金额为现金，说明详见代金券或立减优惠
+     * 可选
+     * 
+     * coupon_refund_fee_$n
+     * 
+     * @var int
+     */
+    public $coupon_refund_fees;
+    
+    /**
+     * 退款代金券使用数量 如（1）
+     * 可选
+     * 退款代金券使用数量
+     *
+     * @var int
+     */
+    public $coupon_refund_count;
 
     /**
      * 退款代金券ID 如（10000）
      * 可选
      * 退款代金券ID, $n为下标，从0开始编号
      *
-     * coupon_type_$n
+     * coupon_refund_id_$n
      *
      * @var string(20)
      */
-    private $coupon_type;
-
-    /**
-     * 单个代金券退款金额 如（100）
-     * 可选
-     * 单个退款代金券支付金额, $n为下标，从0开始编号
-     *
-     * coupon_refund_fee_$n
-     *
-     * @var int
-     */
-    private $coupon_refund_fee;
+    public $coupon_refund_ids;
 }
