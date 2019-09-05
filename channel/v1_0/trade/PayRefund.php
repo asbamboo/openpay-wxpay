@@ -92,9 +92,10 @@ class PayRefund implements RefundInterface
             throw new Api3NotSuccessResponseException(sprintf('微信返回的响应结果异常[%s]', $xml));
         }
         
-        $req_info_xml           = openssl_decrypt($decoded_xml['req_info'], 'aes-256-ecb', md5(EnvHelper::get(Env::WXPAY_SIGN_KEY)), OPENSSL_RAW_DATA);
+        $req_info_xml           = openssl_decrypt(base64_decode($decoded_xml['req_info']), 'aes-256-ecb', md5(EnvHelper::get(Env::WXPAY_SIGN_KEY)), OPENSSL_RAW_DATA);
+
         $decoded_req_info_xml   = json_decode(json_encode(simplexml_load_string($req_info_xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
-        
+
         $NotifyResult       = new NotifyResult();
         $NotifyResult->setInRefundNo($decoded_req_info_xml['out_refund_no']);
         if($decoded_req_info_xml['success_time']){    

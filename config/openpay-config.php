@@ -23,7 +23,8 @@ EnvHelper::set(WxpayEnv::WXPAY_MCH_ID, '1900009851');
 EnvHelper::set(WxpayEnv::WXPAY_API_SSL_CERT, dirname(__DIR__) . DIRECTORY_SEPARATOR . 'var' . DIRECTORY_SEPARATOR . 'apiclient_cert.pem');
 // 微信证书apiclient_key.pem
 EnvHelper::set(WxpayEnv::WXPAY_API_SSL_KEY, dirname(__DIR__) . DIRECTORY_SEPARATOR . 'var' . DIRECTORY_SEPARATOR . 'apiclient_key.pem');
-/***************************************************************************************************/
+// /***************************************************************************************************/
+// require dirname(__DIR__) . '/var/openpay-config.php';
 
 /***************************************************************************************************
  * 数据库配置
@@ -35,3 +36,4 @@ if(!$Container->has('db')){
     $Container->set('db', $DbFactory);
 }
 /***************************************************************************************************/
+ 
