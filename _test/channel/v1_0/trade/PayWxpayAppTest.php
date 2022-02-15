@@ -38,7 +38,7 @@ class PayWxpayAppTest extends TestCase
         $_REQUEST['total_fee']      = rand(0, 9999);
         $_REQUEST['client_ip']      = '123.123.123.123';
         ob_start();
-        include dirname(dirname(dirname(dirname(__DIR__)))) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'index.php';
+        include dirname(dirname(dirname(dirname(__DIR__)))) . DIRECTORY_SEPARATOR . 'web-demo' . DIRECTORY_SEPARATOR . 'index.php';
         $data       = ob_get_contents();
         $headers    = ob_list_handlers();
         ob_end_clean();

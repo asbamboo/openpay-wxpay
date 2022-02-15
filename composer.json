@@ -9,11 +9,11 @@
     },
     "require": {
     	"php" : "^7.2",
-        "asbamboo/autoload": "^1.0",
-        "asbamboo/openpay": "^1.0"
+        "asbamboo/autoload": "dev-master",
+        "asbamboo/openpay": "dev-master"
     },
     "require-dev": {
-        "asbamboo/event": "^1.0",
+        "asbamboo/event": "dev-master",
         "phpunit/phpunit": "^7.3@dev"
     },
     "scripts": {
@@ -36,6 +36,5 @@
     "extra": {
     	"asbamboo-openpay-channel"	: ["channel"]
     },
-    "license": "BSD-3-Clause",
     "minimum-stability": "dev"
 }
