@@ -21,7 +21,9 @@ final class Env
     const WXPAY_APP_ID              = 'OPENPAY_WXPAY_APP_ID';
     // 微信商户号
     const WXPAY_MCH_ID              = 'OPENPAY_WXPAY_MCH_ID';
-    // 微信扫码支付的消息推送 notify url
-    const WXPAY_QRCD_NOTIFY_URL     = "OPENPAY_WXPAY_QRCD_NOTIFY_URL";
+    // 微信证书apiclient_cert.pem
+    const WXPAY_API_SSL_CERT        = 'OPENPAY_WXPAY_API_SSL_CERT';
+    // 微信证书apiclient_key.pem
+    const WXPAY_API_SSL_KEY         = 'OPENPAY_WXPAY_API_SSL_KEY';
     /*********************************************************************************************/
 }

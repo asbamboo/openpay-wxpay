@@ -18,6 +18,8 @@ use asbamboo\openpayWxpay\Env;
  */
 class Client implements ClientInterface
 {
+    public static $is_send_ssl_key = false;
+    
     /**
      *
      * {@inheritDoc}
@@ -74,6 +76,15 @@ class Client implements ClientInterface
         static $Client  = null;
         if(is_null($Client)){
             $Client = new HttpClient();
+        }
+        
+        if(static::$is_send_ssl_key == true){    
+            $option                         = $Client->getOption();
+            $option[CURLOPT_SSLCERTTYPE]    = 'PEM';
+            $option[CURLOPT_SSLCERT]        = EnvHelper::get(Env::WXPAY_API_SSL_CERT);
+            $option[CURLOPT_SSLKEYTYPE]     = 'PEM';
+            $option[CURLOPT_SSLKEY]         = EnvHelper::get(Env::WXPAY_API_SSL_KEY);
+            $Client->setOption($option);
         }
         return $Client->send($HttpRequest);
     }
